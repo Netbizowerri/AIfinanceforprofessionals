@@ -1,12 +1,5 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/a87c8f97-60af-484a-b5ff-45d6ddf9ce66
+# AIfinanceforprofessionals
+A modern, high-converting React landing page for the eBook 'AI For Finance Professionals' by Bob Nichson. Features integrated lead capture via Formspree, multi-channel purchase links (Paystack, Flutterwave, Amazon), and a polished, responsive UI designed for finance professionals
 
 ## Run Locally
 
