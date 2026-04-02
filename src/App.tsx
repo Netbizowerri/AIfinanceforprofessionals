@@ -27,6 +27,29 @@ import { BonusOffer } from './components/sections/BonusOffer';
 import { LeadCaptureForm } from './components/sections/LeadCaptureForm';
 import { Footer } from './components/sections/Footer';
 import { ThankYouPopup } from './components/popups/ThankYouPopup';
+import { SEO } from './components/seo/SEO';
+
+const bookStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "AI For Finance Professionals: Automate Reporting, Analysis and Forecasting",
+  "description": "A practical guide to mastering AI in finance. Learn to automate reporting, improve forecasting accuracy, and reclaim time for high-value strategic advising.",
+  "author": {
+    "@type": "Person",
+    "name": "Bob Nichson"
+  },
+  "genre": "Business & Finance",
+  "inLanguage": "en",
+  "image": "https://i.ibb.co/tMrYK8zM/AI-For-Finance-Professionals-1-1.png",
+  "url": "https://aifinanceforprofessionals.com/",
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": "0",
+    "priceCurrency": "USD",
+    "url": "https://aifinanceforprofessionals.com/#lead-form"
+  }
+};
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -48,6 +71,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      <SEO structuredData={bookStructuredData} />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 w-full glass-card">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
@@ -55,8 +79,10 @@ export default function App() {
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm overflow-hidden border border-slate-100">
               <img 
                 src="https://i.ibb.co/tMrYK8zM/AI-For-Finance-Professionals-1-1.png" 
-                alt="Logo" 
+                alt="AI For Finance Professionals eBook logo" 
                 className="h-full w-full object-cover"
+                width={40}
+                height={40}
                 referrerPolicy="no-referrer"
               />
             </div>

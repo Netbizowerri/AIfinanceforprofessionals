@@ -62,8 +62,10 @@ export const AboutAuthor = () => {
             <div className="relative rounded-[2.5rem] bg-white overflow-hidden shadow-2xl border-4 border-white">
               <img 
                 src="https://i.ibb.co/tMrYK8zM/AI-For-Finance-Professionals-1-1.png" 
-                alt="Bob Nichson" 
+                alt="Bob Nichson, author of AI For Finance Professionals" 
                 className="w-full h-auto block transition-all duration-700 hover:scale-105"
+                width={600}
+                height={600}
                 referrerPolicy="no-referrer"
               />
             </div>

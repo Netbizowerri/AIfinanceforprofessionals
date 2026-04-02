@@ -11,8 +11,10 @@ export const Footer: React.FC = () => {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white shadow-sm overflow-hidden border border-slate-100">
                 <img 
                   src="https://i.ibb.co/tMrYK8zM/AI-For-Finance-Professionals-1-1.png" 
-                  alt="Logo" 
+                  alt="AI For Finance Professionals eBook logo" 
                   className="h-full w-full object-cover"
+                  width={40}
+                  height={40}
                   referrerPolicy="no-referrer"
                 />
               </div>
