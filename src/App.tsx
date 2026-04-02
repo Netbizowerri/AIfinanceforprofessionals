@@ -27,63 +27,19 @@ import { BonusOffer } from './components/sections/BonusOffer';
 import { LeadCaptureForm } from './components/sections/LeadCaptureForm';
 import { Footer } from './components/sections/Footer';
 import { ThankYouPopup } from './components/popups/ThankYouPopup';
-import { AdminDashboard } from './components/sections/AdminDashboard';
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isThankYouOpen, setIsThankYouOpen] = React.useState(false);
   const [leadData, setLeadData] = React.useState({ firstName: '', email: '' });
-  const [isAdmin, setIsAdmin] = React.useState(window.location.pathname === '/admin');
-
-  React.useEffect(() => {
-    const handlePopState = () => {
-      setIsAdmin(window.location.pathname === '/admin');
-    };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
-
-  const navigate = (path: string) => {
-    window.history.pushState({}, '', path);
-    setIsAdmin(path === '/admin');
-  };
 
   const scrollToSection = (id: string) => {
-    if (isAdmin) {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-      return;
-    }
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
   };
-
-  if (isAdmin) {
-    return (
-      <div className="min-h-screen bg-slate-50">
-        <nav className="sticky top-0 z-40 w-full border-b border-slate-100 bg-white/80 backdrop-blur-md">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
-            <button onClick={() => navigate('/')} className="flex items-center gap-2 font-bold text-slate-900">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600 text-white">
-                <Zap size={20} fill="currentColor" />
-              </div>
-              <span>AI Finance Admin</span>
-            </button>
-            <button onClick={() => navigate('/')} className="text-sm font-medium text-slate-600 hover:text-blue-600">
-              Back to Landing Page
-            </button>
-          </div>
-        </nav>
-        <AdminDashboard />
-      </div>
-    );
-  }
 
   const handleLeadSuccess = (data: { firstName: string; email: string }) => {
     setLeadData(data);
