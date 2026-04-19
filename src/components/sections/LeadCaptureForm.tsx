@@ -43,11 +43,18 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({ onSuccess }) =
     setError(null);
     
     try {
-      // Using Formspree endpoint
-      await axios.post('https://formspree.io/f/mgoplank', {
-        ...data,
-        _subject: `New Lead: ${data.fullName}`,
-      });
+      // Using Privyr Webhook
+      const payload = {
+        name: data.fullName,
+        email: data.email,
+        jobTitle: data.jobTitle,
+        country: data.country,
+        consent: data.consent,
+        // map remaining fields to keep the original data inside
+        ...data
+      };
+      
+      await axios.post('https://www.privyr.com/api/v1/incoming-leads/0vZfjMQw/16hYPAPX', payload);
       
       const firstName = data.fullName.split(' ')[0];
       onSuccess({ firstName, email: data.email });
